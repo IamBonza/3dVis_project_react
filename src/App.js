@@ -13,7 +13,7 @@ import {AuthContext} from './context/context';
 import {examples} from "./databases/examples";
 
 function App() {
-  const [dataBase, setDataBase] = useState(examples);
+  const [dataBase] = useState(examples);
 
   const [favorites, setFavorites] = useState([]);
 

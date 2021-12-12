@@ -102,7 +102,7 @@ const Calc = () => {
             <footer className={classNames(classes.footer, classes.footerInner)}>
                 <div className={classes.container}>
                     <p className={classes.footerText}>Александра Генина <a href="mailto:alex3101kushnir@gmail.com"
-                                                                    target="_blank">alex3101kushnir@gmail.com</a></p>
+                                                                    target="_blank" rel="noreferrer">alex3101kushnir@gmail.com</a></p>
                 </div>
             </footer>
         </div>
