@@ -1,48 +1,51 @@
-import React, { useEffect } from "react";
-import logo from "../assets/images/Web.png";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useContext } from 'react';
+import logo from '../assets/images/Web.png';
+import { Link, useNavigate } from 'react-router-dom';
+import {AuthContext} from "../context/context";
 
 const Header = () => {
   const navigate = useNavigate;
+  const {isAuth, setIsAuth} = useContext(AuthContext);
   function LoginLogout() {
-    if (localStorage.getItem("isAuth")) {
-      localStorage.removeItem("isAuth");
+    if (isAuth) {
+      localStorage.removeItem('isAuth');
+      setIsAuth(false)
     } else {
-      navigate("/login");
+      navigate('/login');
     }
   }
   const headerStyle = {
-    color: "black",
-    textDecoration: "none",
+    color: 'black',
+    textDecoration: 'none',
   };
 
   return (
-    <header className="header">
-      <img src={logo} alt="logo" />
-      <ul className="nav-links">
+    <header className='header'>
+      <img src={logo} alt='logo' />
+      <ul className='nav-links'>
         <li>
-          <Link style={headerStyle} to="/">
+          <Link style={headerStyle} to='/'>
             Главная
           </Link>
         </li>
         <li>
-          <Link style={headerStyle} to="/examples">
+          <Link style={headerStyle} to='/examples'>
             Примеры работ
           </Link>
         </li>
         <li>
-          <Link style={headerStyle} to="/favorites">
+          <Link style={headerStyle} to='/favorites'>
             Избранное
           </Link>
         </li>
         <li>
-          <Link style={headerStyle} to="/calc">
+          <Link style={headerStyle} to='/calc'>
             Рассчет стоимости
           </Link>
         </li>
         <li>
-          <Link style={headerStyle} to="/login" onClick={LoginLogout}>
-            {localStorage.getItem("isAuth") ? "Выйти" : "Войти"}
+          <Link style={headerStyle} to='/login' onClick={LoginLogout}>
+            {isAuth ? 'Выйти' : 'Войти'}
           </Link>
         </li>
       </ul>

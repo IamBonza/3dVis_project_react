@@ -1,21 +1,17 @@
 import React from "react";
 import classes from "./LoginForm.module.css";
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { usersList } from "../../databases/users";
+import {AuthContext} from "../../context/context";
 
 const LoginForm = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  let isAuth = localStorage.getItem("isAuth");
+  const {isAuth, setIsAuth} = useContext(AuthContext)
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (isAuth) {
-  //     console.log("Nav");
-  //     navigate("/");
-  //   }
-  // });
+
 
   const submitFormHandler = (event) => {
     event.preventDefault();
@@ -25,6 +21,7 @@ const LoginForm = () => {
     if (nameCheck) {
       if (passwordCheck) {
         localStorage.setItem("isAuth", "true");
+        setIsAuth(true)
         navigate("/");
       } else {
         alert("Пароль введен не верно");
