@@ -8,7 +8,7 @@ import {AuthContext} from "../../context/context";
 const LoginForm = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const {isAuth, setIsAuth} = useContext(AuthContext)
+  const {setIsAuth} = useContext(AuthContext)
   const navigate = useNavigate();
 
 
