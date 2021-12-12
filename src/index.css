@@ -23,7 +23,7 @@ body {
 
 }
 
-.header > img {
+.headerLogo {
   width: 56px;
   height: 56px;
 }
@@ -57,6 +57,8 @@ body {
   text-align: center;
   overflow: hidden;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 
 .card-container:hover {
@@ -70,6 +72,13 @@ body {
 .buttonCard{
   display: block;
   margin: 0 auto;
+  z-index: 100;
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
 
 .full-example-container {

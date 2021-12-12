@@ -14,7 +14,7 @@ const Calc = () => {
 
                         <div className={classes.calcSection}>
                             <div>
-                                <h4 className={classNames(classes.checkboxWrapper, classes.titleBold, classes.sectionTitle)}>Стиль дизайна интерьера</h4>
+                                 <h4 className={classNames(classes.checkboxWrapper, classes.titleBold, classes.sectionTitle)}>Стиль дизайна интерьера</h4>
                                 <label className={classes.radioWrapper} data-name="mobile">
                                     <input type="radio" className={classNames(classes.radio, classes.radio-1)} name="style" value="400" checked/>
                                     <div className={classes.titleLite}>

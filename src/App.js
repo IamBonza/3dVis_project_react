@@ -10,75 +10,27 @@ import LoginForm from "./Components/LoginForm/LoginForm";
 import Calc from "./Components/Calc/Calc";
 import FavoritesList from "./Components/Favorites/FavoritesList";
 import {AuthContext} from './context/context';
+import {examples} from "./databases/examples";
 
 function App() {
-  const [dataBase, setDataBase] = useState([
-    {
-      id: "1",
-      img: "/images/1.jpeg",
-      title: "Заголовок",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum.",
-      descriptionFull:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum",
-    },
-    {
-      id: "2",
-      img: "/images/2.jpeg",
-      title: "Заголовок 2",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum.",
-      descriptionFull:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum",
-    },
-    {
-      id: "3",
-      img: "/images/1.jpeg",
-      title: "Заголовок",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum.",
-      descriptionFull:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum",
-    },
-    {
-      id: "4",
-      img: "/images/2.jpeg",
-      title: "Заголовок 2",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum.",
-      descriptionFull:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum",
-    },
-    {
-      id: "5",
-      img: "/images/1.jpeg",
-      title: "Заголовок",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum.",
-      descriptionFull:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum",
-    },
-    {
-      id: "6",
-      img: "/images/1.jpeg",
-      title: "Заголовок",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum.",
-      descriptionFull:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earumLorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum",
-    },
-  ]);
+  const [dataBase, setDataBase] = useState(examples);
 
   const [favorites, setFavorites] = useState([]);
 
   function addToFav(dataBaseElem) {
-    const temp = [...favorites, dataBaseElem];
-    setFavorites(temp);
+
+    const temp = favorites.find((item)=> item === dataBaseElem)
+        if(temp) {
+            return
+        }else {
+            setFavorites([...favorites, dataBaseElem]);
+        }
+
+
   }
 
   function removeFromFav(id) {
     const temp = favorites.filter((item) => item.id !== id);
-    console.log(temp);
     setFavorites(temp);
   }
 
@@ -106,11 +58,11 @@ function App() {
                   <Route
                       path="/examples"
                       exact
-                      element={<ExamplesList dataBase={dataBase} addToFav={addToFav} />}
+                      element={<ExamplesList dataBase={dataBase} addToFav={addToFav}/>}
                   />
                   <Route
                       path="/examples/:id"
-                      element={<FullExample dataBase={dataBase} />}
+                      element={<FullExample dataBase={dataBase} addToFav={addToFav} />}
                   />
                   <Route
                       path="/favorites"
@@ -132,11 +84,11 @@ function App() {
                   <Route
                       path="/examples"
                       exact
-                      element={<ExamplesList dataBase={dataBase} addToFav={addToFav} />}
+                      element={<ExamplesList dataBase={dataBase}  addToFav={addToFav}/>}
                   />
                   <Route
                       path="/examples/:id"
-                      element={<FullExample dataBase={dataBase} />}
+                      element={<FullExample dataBase={dataBase} addToFav={addToFav}/>}
                   />
                   <Route
                       path="/favorites"

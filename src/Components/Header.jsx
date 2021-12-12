@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <header className='header'>
-      <img src={logo} alt='logo' />
+      <Link to={'/'} className={'headerLogo'}><img src={logo} alt='logo' /></Link>
       <ul className='nav-links'>
         <li>
           <Link style={headerStyle} to='/'>
