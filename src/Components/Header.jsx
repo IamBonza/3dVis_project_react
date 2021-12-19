@@ -5,13 +5,13 @@ import {AuthContext} from "../context/context";
 
 const Header = () => {
   const navigate = useNavigate;
-  const {isAuth, setIsAuth} = useContext(AuthContext);
+  const {isAuth, setIsAuth, isVisible, setIsVisible} = useContext(AuthContext);
   function LoginLogout() {
     if (isAuth) {
       localStorage.removeItem('isAuth');
       setIsAuth(false)
     } else {
-      navigate('/login');
+      setIsVisible(true)
     }
   }
   const headerStyle = {
@@ -44,9 +44,7 @@ const Header = () => {
           </Link>
         </li>
         <li>
-          <Link style={headerStyle} to='/login' onClick={LoginLogout}>
-            {isAuth ? 'Выйти' : 'Войти'}
-          </Link>
+          <button onClick={LoginLogout}>{isAuth ? 'Выйти' : 'Войти'}</button>
         </li>
       </ul>
     </header>

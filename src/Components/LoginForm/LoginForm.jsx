@@ -8,7 +8,7 @@ import {AuthContext} from "../../context/context";
 const LoginForm = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const {setIsAuth} = useContext(AuthContext)
+  const {setIsAuth, setIsVisible} = useContext(AuthContext)
   const navigate = useNavigate();
 
 
@@ -22,7 +22,8 @@ const LoginForm = () => {
       if (passwordCheck) {
         localStorage.setItem("isAuth", "true");
         setIsAuth(true)
-        navigate("/");
+        setIsVisible(false)
+        // navigate("/");
       } else {
         alert("Пароль введен не верно");
       }
@@ -30,6 +31,10 @@ const LoginForm = () => {
       alert("Такого пользователя не существует");
     }
   };
+
+  const closeHandler = () => {
+    setIsVisible(false)
+  }
 
   return (
     <div className={classes.formWrapper}>
@@ -81,6 +86,7 @@ const LoginForm = () => {
         <button type="submit" className={classes.form__button}>
           Войти
         </button>
+        <div className={classes.closeBtn} onClick={closeHandler}>X</div>
       </form>
     </div>
   );

@@ -12,6 +12,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.App {
+  position: relative;
+  min-height: 100vh;
+}
+
 .header {
   /*position: fixed;*/
   height: 10vh;
@@ -29,11 +35,14 @@ body {
 }
 
 .nav-links {
-  width: 50%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   list-style: none;
+}
+
+.nav-links li:not(:last-child) {
+  margin-right: 36px;
 }
 
 .main-container {

@@ -2,7 +2,7 @@ export const examples = [
     {
         id: "1",
         img: "/images/1.jpeg",
-        title: "Заголовок",
+        title: "Заголовок 1",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum.",
         descriptionFull:
@@ -20,7 +20,7 @@ export const examples = [
     {
         id: "3",
         img: "/images/1.jpeg",
-        title: "Заголовок",
+        title: "Заголовок 3",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum.",
         descriptionFull:
@@ -29,7 +29,7 @@ export const examples = [
     {
         id: "4",
         img: "/images/2.jpeg",
-        title: "Заголовок 2",
+        title: "Заголовок 4",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum.",
         descriptionFull:
@@ -38,7 +38,7 @@ export const examples = [
     {
         id: "5",
         img: "/images/1.jpeg",
-        title: "Заголовок",
+        title: "Заголовок 5",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum.",
         descriptionFull:
@@ -47,7 +47,7 @@ export const examples = [
     {
         id: "6",
         img: "/images/1.jpeg",
-        title: "Заголовок",
+        title: "Заголовок 6",
         description:
             "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci, debitis dolore earum.",
         descriptionFull:

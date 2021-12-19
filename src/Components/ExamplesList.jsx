@@ -1,17 +1,14 @@
 import React from 'react';
-import Card from "./Card";
+import Card from './Card';
 
-const ExamplesList = (props) => {
+const ExamplesList = ({dataBase, addToFav}) => {
     return (
-        <div className='example-list-container'>
-            {props.dataBase.map((dataBaseElem) => {
+        <div className="example-list-container">
+            {dataBase.map((dataBaseElem) => {
                 return (
-                        <Card key={dataBaseElem.id}
-                              img={dataBaseElem.img}
-                              title={dataBaseElem.title}
-                              description={dataBaseElem.description}
-                              id={dataBaseElem.id}
-                              addToFav={() => props.addToFav(dataBaseElem)}/>
+                    <Card key={dataBaseElem.id}
+                          dataBaseElem={dataBaseElem}
+                          addToFav={() => addToFav(dataBaseElem)}/>
                 )
             })}
 
