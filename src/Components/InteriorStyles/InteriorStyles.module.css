@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.sliderContainer {
+    width: 100%;
+    padding: 0 20px;
+    display: flex;
+}
+
+.slide {
+    height: 80vh;
+    border-radius: 20px;
+    margin: 10px;
+    flex: 1;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: all 500ms ease-in-out;
+}
+
+.slide.active {
+    flex: 10;
+}
+
+.slide h3 {
+    margin: 32px 0 0 16px;
+    font-size: 24px;
+    opacity: 0;
+}
+
+.slide.active h3 {
+    opacity: 1;
+    transition: opacity 0.3s;
+}

@@ -5,6 +5,7 @@ import Header from './Components/Header';
 import {AuthContext} from './context/context';
 import {AppContext} from './context/appContext';
 import {examples} from './databases/examples';
+import {styles} from './databases/stylesDb';
 import AppRouter from './Components/AppRouter/AppRouter';
 import Modal from './Components/Modal/Modal';
 
@@ -41,7 +42,7 @@ function App() {
 
     return (
         <div className={'App'}>
-            <AppContext.Provider value={{dataBase, addToFav, removeFromFav, favorites}}>
+            <AppContext.Provider value={{dataBase, addToFav, removeFromFav, favorites, styles}}>
                 <AuthContext.Provider value={{isAuth, setIsAuth, isVisible, setIsVisible}}>
                     <Router>
 
