@@ -2,6 +2,7 @@ import React, {useContext} from 'react';
 import classes from './Calc.module.css';
 import classNames from 'classnames';
 import {AuthContext} from '../../context/context';
+import Button from '../Buttton/Button';
 
 
 const Calc = () => {
@@ -12,7 +13,7 @@ const Calc = () => {
         return (
             <div className={classes.notAuth}>
                 <h1 >Страница доступна только авторизованным пользователям</h1>
-                <button onClick={() => setIsVisible(true)}>Авторизоваться</button>
+                <Button onClick={() => setIsVisible(true)}>Авторизоваться</Button>
             </div>
         )
     }

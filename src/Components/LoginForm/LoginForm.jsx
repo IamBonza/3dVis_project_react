@@ -4,6 +4,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { usersList } from "../../databases/users";
 import {AuthContext} from "../../context/context";
+import Button from '../Buttton/Button';
 
 const LoginForm = () => {
   const [name, setName] = useState("");
@@ -83,9 +84,9 @@ const LoginForm = () => {
             Я согласен получать обновления на почту
           </label>
         </div>
-        <button type="submit" className={classes.form__button}>
+        <Button type="submit">
           Войти
-        </button>
+        </Button>
         <div className={classes.closeBtn} onClick={closeHandler}>X</div>
       </form>
     </div>

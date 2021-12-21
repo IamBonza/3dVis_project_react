@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import logo from '../assets/images/Web.png';
 import { Link, useNavigate } from 'react-router-dom';
 import {AuthContext} from "../context/context";
+import Button from './Buttton/Button';
 
 const Header = () => {
   const navigate = useNavigate;
@@ -44,7 +45,7 @@ const Header = () => {
           </Link>
         </li>
         <li>
-          <button onClick={LoginLogout}>{isAuth ? 'Выйти' : 'Войти'}</button>
+          <Button onClick={LoginLogout}>{isAuth ? 'Выйти' : 'Войти'}</Button>
         </li>
       </ul>
     </header>

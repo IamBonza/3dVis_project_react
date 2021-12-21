@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  text-decoration: none;
 }
 
 body {
@@ -88,9 +89,10 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.full-example-container {
+.full-example__container {
   padding: 24px;
   display: flex;
   flex-direction: column;
