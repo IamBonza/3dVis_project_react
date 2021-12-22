@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import logo from '../assets/images/Web.png';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import {AuthContext} from "../context/context";
 import Button from './Buttton/Button';
 

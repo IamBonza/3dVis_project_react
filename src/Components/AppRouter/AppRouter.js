@@ -1,5 +1,4 @@
 import React, {useContext} from 'react';
-import {AuthContext} from '../../context/context';
 import {Navigate, Route, Routes} from 'react-router-dom';
 import Main from '../Main';
 import ExamplesList from '../ExamplesList';
@@ -12,7 +11,6 @@ import {AppContext} from '../../context/appContext';
 
 const AppRouter = () => {
 
-    const {isAuth} = useContext(AuthContext);
     const {dataBase, addToFav, removeFromFav, favorites } = useContext(AppContext)
 
     return (
