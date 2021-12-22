@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
 import classes from './Calc.module.css';
-import classNames from 'classnames';
 import {AuthContext} from '../../context/context';
 import Button from '../Buttton/Button';
+import {stylesRadioBtns} from '../../databases/stylesRadioBtns'
 
 
 const Calc = () => {
@@ -20,78 +20,41 @@ const Calc = () => {
 
     return (
         <>
-            <main className={classes.calcWrapper}>
-                <div className={classes.container}>
-                    <form id="form">
-                        <div className={classes.heading}>
-                            <h1 className={classes.headingTitle}>Калькулятор 3d-визуализации</h1>
-                        </div>
-
-                        <div className={classes.calcSection}>
-                            <div>
-                                <h4 className={classNames(classes.checkboxWrapper, classes.titleBold, classes.sectionTitle)}>Стиль
-                                    дизайна интерьера</h4>
-                                <label className={classes.radioWrapper} data-name="mobile">
-                                    <input type="radio" className={classNames(classes.radio, classes.radio - 1)}
-                                           name="style" value="400" checked/>
-                                    <div className={classes.titleLite}>
-                                        Минимализм, Скандинавский, Хайтек
-                                        <span className={classes.note}>Базовая цена: 1 м² = 400 рублей</span>
-                                    </div>
-                                </label>
-                                <label className={classes.radioWrapper} data-name="mobile">
-                                    <input type="radio" className={classNames(classes.radio, classes.radio - 2)}
-                                           name="style" value="450"/>
-                                    <div className={classes.titleLite}>
-                                        Эклектика, Лофт
-                                        <span className={classes.note}>Базовая цена: 1 м² = 450 рублей</span>
-                                    </div>
-                                </label>
-                                <label className={classes.radioWrapper} data-name="mobile">
-                                    <input type="radio" className={classNames(classes.radio, classes.radio - 3)}
-                                           name="style" value="500"/>
-                                    <div className={classes.titleLite}>
-                                        Классический, Английский, Прованс, Арт-Деко
-                                        <span className={classes.note}>Базовая цена: 1 м² = 500 рублей</span>
-                                    </div>
-                                </label>
-                            </div>
-
-                        </div>
-
-                        <div className={classes.calcSection}>
-                            <label
-                                className={classNames(classes.checkboxWrapper, classes.titleBold, classes.sectionTitle, classes.sectionTitleVerticalCenter)}>
-                                <span className={classes.title__inline}>Площадь квартиры:</span>
-                                <input type="number" min="0" max="200" value="25" id="squareInput"
-                                       className={classNames(classes.title__inline, classes.inputShort)}/>
-                                <span className={classes.title__inline}>м²</span>
+            <form className={classes.formWrapper}>
+                <h1 className={classes.fromTitle}>Калькулятор 3d-визуализации</h1>
+                <div className={classes.radioBtnsContainer}>
+                    <h2 className={classes.radioBtnsContainer__title}>Стиль дизайна интерьера</h2>
+                    {stylesRadioBtns.map((elem)=> {
+                        return (
+                            <label className={classes.radioBtnBlock} key={elem.style}>
+                                <input type='radio' className={classes.radioBtnBlock__radioBtn} name={'style'} value={elem.price} id={'style'}/>
+                                <div className={classes.radioBtnBlock__title}>
+                                    {elem.style}
+                                    <span className={classes.radioBtnBlock__titlePrices}>Базовая цена: 1 м² = {elem.price} рублей</span>
+                                </div>
                             </label>
-                            <input type="range" id="square-range" className={classes.rangeInput} min="0" max="200"
-                                   value="25"
-                                   step="1"/>
-                        </div>
-
-
-                        <div className={classes.calcPrice}>
-                            <div className={classes.calcPriceTitle}>Стоимость визуализации:</div>
-                            <div className={classes.calcPriceValue}>
-                                <span id="totalPrice">0</span>
-                                рублей
-                            </div>
-                        </div>
-                    </form>
+                            // </div>
+                        )
+                    })}
                 </div>
-            </main>
-            <footer className={classNames(classes.footer, classes.footerInner)}>
-                <div className={classes.container}>
-                    <p className={classes.footerText}>Александра Генина <a href="mailto:alex3101kushnir@gmail.com"
-                                                                           target="_blank"
-                                                                           rel="noreferrer">alex3101kushnir@gmail.com</a>
-                    </p>
+
+                <div className={classes.squareMetersContainer}>
+                    <label className={classes.squareMeters__inputNumbersContainer}>
+                        <span>Площадь квартиры:</span>
+                        <input type='number' className={classes.squareMeters__inputNumbers} min='0' max='200' value='25'/>
+                        <span>м²</span>
+                    </label>
+                    <input type='range' className={classes.squareMeters__inputRange} min='0' max='200' value='25' step='1'/>
                 </div>
-            </footer>
-            }
+
+                <div className={classes.totalPriceContainer}>
+                    <div className="totalPriceSection">
+                        <p className={classes.totalPriceSection__title}>Стоимость визуализации:</p>
+                        <span className={classes.totalPriceSection__total}>10 000 рублей</span>
+                    </div>
+                    <Button type={'submit'}>Отправить заказ</Button>
+                </div>
+            </form>
         </>
     )
 

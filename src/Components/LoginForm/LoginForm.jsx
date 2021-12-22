@@ -1,7 +1,6 @@
 import React from "react";
 import classes from "./LoginForm.module.css";
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { usersList } from "../../databases/users";
 import {AuthContext} from "../../context/context";
 import Button from '../Buttton/Button';
@@ -10,7 +9,6 @@ const LoginForm = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const {setIsAuth, setIsVisible} = useContext(AuthContext)
-  const navigate = useNavigate();
 
 
 
