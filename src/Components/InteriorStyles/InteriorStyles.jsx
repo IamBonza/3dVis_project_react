@@ -21,14 +21,14 @@ const InteriorStyles = () => {
 
                 if (index === 3) {
                     return (
-                        <div className = {classNames(classes.slide, classes.active)} style={{backgroundImage: style.img}} onClick={addClass}>
+                        <div className = {classNames(classes.slide, classes.active)} style={{backgroundImage: style.img}} onClick={addClass} key={index}>
                             <h3>{style.name}</h3>
                         </div>
                     )
                 }
 
                 return (
-                    <div className={classes.slide} style={{backgroundImage: style.img}} onClick={addClass}>
+                    <div className={classes.slide} style={{backgroundImage: style.img}} onClick={addClass} key={index}>
                         <h3>{style.name}</h3>
                     </div>
                 )

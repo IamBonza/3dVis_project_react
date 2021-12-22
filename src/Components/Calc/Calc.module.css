@@ -84,7 +84,8 @@
 .squareMeters__inputNumbers {
     width: 62px;
     height: 36px;
-    margin-right: 10px;
+    padding-left: 5px;
+    margin: 0 10px 0 10px;
     border-radius: 4px;
     border: 1px solid #9a9a9a;
     font-size: 24px;

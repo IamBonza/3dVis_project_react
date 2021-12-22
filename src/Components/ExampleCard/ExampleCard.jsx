@@ -1,9 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import classes from './ExampleCard.module.css'
 
-const Card = ({dataBaseElem}) => {
+const ExampleCard = ({dataBaseElem}) => {
     return (
-        <Link to={`/examples/${dataBaseElem.id}`} className="card-container">
+        <Link to={`/examples/${dataBaseElem.id}`} className={classes.cardContainer}>
             <div key={dataBaseElem.id}>
                 <img src={dataBaseElem.img} alt=""/>
                 <h2>{dataBaseElem.title}</h2>
@@ -14,4 +15,4 @@ const Card = ({dataBaseElem}) => {
     );
 };
 
-export default Card;
+export default ExampleCard;

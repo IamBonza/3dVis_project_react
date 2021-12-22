@@ -1,0 +1,20 @@
+.cardContainer {
+    width: 30%;
+    margin-bottom: 24px;
+    box-shadow: 0 0 18px #ccc ;
+    border-radius: 12px;
+    text-align: center;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+.cardContainer  img{
+    max-width: 100%;
+    height: auto;
+}
+
+.cardContainer:hover {
+    box-shadow: 0 0 18px #ccc inset;
+}

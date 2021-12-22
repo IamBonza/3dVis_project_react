@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import './index.css';
-import Header from './Components/Header';
+import Header from './Components/Header/Header';
 import {AuthContext} from './context/context';
 import {AppContext} from './context/appContext';
 import {examples} from './databases/examples';
@@ -45,7 +45,6 @@ function App() {
             <AppContext.Provider value={{dataBase, addToFav, removeFromFav, favorites, styles}}>
                 <AuthContext.Provider value={{isAuth, setIsAuth, isVisible, setIsVisible}}>
                     <Router>
-
                         <Header/>
                         <AppRouter/>
                         <Modal/>
