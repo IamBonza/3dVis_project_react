@@ -5,8 +5,7 @@ import {AuthContext} from "../context/context";
 import Button from './Buttton/Button';
 
 const Header = () => {
-  const navigate = useNavigate;
-  const {isAuth, setIsAuth, isVisible, setIsVisible} = useContext(AuthContext);
+  const {isAuth, setIsAuth, setIsVisible} = useContext(AuthContext);
   function LoginLogout() {
     if (isAuth) {
       localStorage.removeItem('isAuth');
