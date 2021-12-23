@@ -1,8 +1,8 @@
 import React, {useContext} from 'react';
 import {Navigate, Route, Routes} from 'react-router-dom';
-import Main from '../Main';
-import ExamplesList from '../ExamplesList';
-import FullExample from '../FullExample';
+import Main from '../Main/Main';
+import ExamplesList from '../ExamplesList/ExamplesList';
+import FullExample from '../FullExample/FullExample';
 import FavoritesList from '../Favorites/FavoritesList';
 import Calc from '../Calc/Calc';
 import LoginForm from '../LoginForm/LoginForm';

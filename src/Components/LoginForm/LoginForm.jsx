@@ -82,7 +82,7 @@ const LoginForm = () => {
             Я согласен получать обновления на почту
           </label>
         </div>
-        <Button type="submit">
+        <Button type="submit" className={'loginBtn'}>
           Войти
         </Button>
         <div className={classes.closeBtn} onClick={closeHandler}>X</div>

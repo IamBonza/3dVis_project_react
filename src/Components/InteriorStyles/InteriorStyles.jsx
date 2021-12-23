@@ -1,41 +1,40 @@
-import React, {useContext} from 'react';
-import classes from './InteriorStyles.module.css';
-import classNames from 'classnames';
+import React, {useContext, useState} from 'react';
+import './InteriorStyles.css'
 import {AppContext} from '../../context/appContext';
-
 
 
 const InteriorStyles = () => {
 
-    function addClass(e) {
-        console.log(e.target)
+    const [activeId, setActiveId] = useState(3);
 
+
+    function addActiveClass(id) {
+        if (id === activeId) {
+            return 'slide active'
+        } else {
+            return 'slide'
+        }
     }
 
     const {styles} = useContext(AppContext)
 
     return (
-        <div className={classes.sliderContainer}>
+        <>
+            <h2>Виды дизайна интерьеров</h2>
+            <div className={'sliderContainer'}>
 
-            {styles.map((style, index)=> {
-
-                if (index === 3) {
+                {styles.map((style, index) => {
                     return (
-                        <div className = {classNames(classes.slide, classes.active)} style={{backgroundImage: style.img}} onClick={addClass} key={index}>
+                        <div className={addActiveClass(style.id)}
+                             style={{backgroundImage: style.img}}
+                             onClick={(e) => setActiveId(style.id)} key={index}
+                        >
                             <h3>{style.name}</h3>
                         </div>
                     )
-                }
-
-                return (
-                    <div className={classes.slide} style={{backgroundImage: style.img}} onClick={addClass} key={index}>
-                        <h3>{style.name}</h3>
-                    </div>
-                )
-            })}
-
-
-        </div>
+                })}
+            </div>
+        </>
     );
 };
 

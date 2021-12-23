@@ -15,15 +15,12 @@ function App() {
     const [favorites, setFavorites] = useState([]);
 
     function addToFav(dataBaseElem) {
-
         const temp = favorites.find((item) => item === dataBaseElem)
         if (temp) {
             return
         } else {
             setFavorites([...favorites, dataBaseElem]);
         }
-
-
     }
 
     function removeFromFav(id) {
