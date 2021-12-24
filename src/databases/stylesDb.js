@@ -1,4 +1,4 @@
-export const styles = [
+export const InteriorStyles = [
     {
         id: 1,
         name: 'Минимализм',
@@ -34,4 +34,5 @@ export const styles = [
         name: 'Английский',
         img: "url('https://legko.com/disk/2/blogHQ/b0/b0540ee6e09508795d8b3150287b266a.jpg')"
     },
+
 ]

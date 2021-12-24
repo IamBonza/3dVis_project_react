@@ -5,21 +5,23 @@ import Header from './Components/Header/Header';
 import {AuthContext} from './context/context';
 import {AppContext} from './context/appContext';
 import {examples} from './databases/examples';
-import {styles} from './databases/stylesDb';
+import {InteriorStyles} from './databases/stylesDb';
+import {routes} from './databases/routes';
+import {links} from './databases/links';
 import AppRouter from './Components/AppRouter/AppRouter';
 import Modal from './Components/Modal/Modal';
 
 function App() {
-    const [dataBase] = useState(examples);
-
+    const [dataBase] = useState(() => examples);
     const [favorites, setFavorites] = useState([]);
+    const [isAuth, setIsAuth] = useState(false)
+    const [isVisible, setIsVisible] = useState(false)
 
     function addToFav(dataBaseElem) {
         const temp = favorites.find((item) => item === dataBaseElem)
-        if (temp) {
-            return
-        } else {
-            setFavorites([...favorites, dataBaseElem]);
+        if (!temp) {
+            setFavorites(prevState => [...prevState, dataBaseElem]);
+
         }
     }
 
@@ -28,9 +30,6 @@ function App() {
         setFavorites(temp);
     }
 
-    const [isAuth, setIsAuth] = useState(false)
-    const [isVisible, setIsVisible] = useState(false)
-
     useEffect(() => {
         if (localStorage.getItem('isAuth')) {
             setIsAuth(true)
@@ -38,17 +37,19 @@ function App() {
     }, [])
 
     return (
-        <div className={'App'}>
-            <AppContext.Provider value={{dataBase, addToFav, removeFromFav, favorites, styles}}>
-                <AuthContext.Provider value={{isAuth, setIsAuth, isVisible, setIsVisible}}>
+
+        <AppContext.Provider value={{dataBase, addToFav, removeFromFav, favorites, InteriorStyles, routes, links}}>
+            <AuthContext.Provider value={{isAuth, setIsAuth, isVisible, setIsVisible}}>
+                <div className={'App'}>
                     <Router>
                         <Header/>
                         <AppRouter/>
                         <Modal/>
                     </Router>
-                </AuthContext.Provider>
-            </AppContext.Provider>
-        </div>
+                </div>
+            </AuthContext.Provider>
+        </AppContext.Provider>
+
     );
 }
 

@@ -1,50 +1,48 @@
-import React, { useContext } from 'react';
+import React, {useContext} from 'react';
 import logo from '../../assets/images/Web.png';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import classes from './Header.module.css'
-import {AuthContext} from "../../context/context";
+import {AuthContext} from '../../context/context';
 import Button from '../Buttton/Button.jsx';
+import {AppContext} from '../../context/appContext';
 
 const Header = () => {
     const {isAuth, setIsAuth, setIsVisible} = useContext(AuthContext);
-    function LoginLogout() {
-        if (isAuth) {
-            localStorage.removeItem('isAuth');
-            setIsAuth(false)
-        } else {
-            setIsVisible(true)
-        }
+
+    function Login() {
+        setIsVisible(true)
     }
+
+    function Logout() {
+        localStorage.removeItem('isAuth');
+        setIsAuth(false)
+    }
+
+    const {links} = useContext(AppContext)
 
 
     return (
         <header className={classes.header}>
-            <Link to={'/'} className={classes.headerLogo}><img src={logo} alt='logo' /></Link>
+            <Link to={'/'} className={classes.headerLogo}>
+                <img src={logo} alt="logo"/>
+            </Link>
+
             <ul className={classes.navLinks}>
+                {links.map((link) => {
+                    return (
+                        <li key={link.to}>
+                            <Link className={classes.navLinks__link} to={link.to}>
+                                {link.linkText}
+                            </Link>
+                        </li>
+                    )
+                })}
                 <li>
-                    <Link className={classes.navLinks__link} to='/'>
-                        Главная
-                    </Link>
-                </li>
-                <li>
-                    <Link className={classes.navLinks__link} to='/examples'>
-                        Примеры работ
-                    </Link>
-                </li>
-                <li>
-                    <Link className={classes.navLinks__link} to='/favorites'>
-                        Избранное
-                    </Link>
-                </li>
-                <li>
-                    <Link className={classes.navLinks__link} to='/calc'>
-                        Рассчет стоимости
-                    </Link>
-                </li>
-                <li>
-                    <Button onClick={LoginLogout}>{isAuth ? 'Выйти' : 'Войти'}</Button>
+                    {isAuth && <Button onClick={Logout}>Выйти</Button>}
+                    {!isAuth && <Button onClick={Login}>Войти</Button>}
                 </li>
             </ul>
+
         </header>
     );
 };

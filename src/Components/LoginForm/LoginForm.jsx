@@ -22,7 +22,6 @@ const LoginForm = () => {
         localStorage.setItem("isAuth", "true");
         setIsAuth(true)
         setIsVisible(false)
-        // navigate("/");
       } else {
         alert("Пароль введен не верно");
       }
@@ -36,7 +35,8 @@ const LoginForm = () => {
   }
 
   return (
-    <div className={classes.formWrapper}>
+    <div className={classes.formWrapper} onClick={closeHandler}>
+      <div className={classes.closeBtn} onClick={closeHandler}>X</div>
       <form action="POST" className={classes.form} onSubmit={submitFormHandler}>
         <h1 className={classes.form__title}>Вход</h1>
         <div className={classes.inputBlock}>
@@ -85,7 +85,7 @@ const LoginForm = () => {
         <Button type="submit" className={'loginBtn'}>
           Войти
         </Button>
-        <div className={classes.closeBtn} onClick={closeHandler}>X</div>
+
       </form>
     </div>
   );

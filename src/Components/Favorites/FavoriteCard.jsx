@@ -1,19 +1,24 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import classes from "./Favorites.module.css";
+import React, {useContext} from 'react';
+import {Link} from 'react-router-dom';
+import classes from './Favorites.module.css';
+import {AppContext} from '../../context/appContext';
 
-const FavoriteCard = (props) => {
-  return (
-    <div key={props.id} className={classes.cardContainer}>
-      <img src={props.img} alt="" />
-      <h2>{props.title}</h2>
-      <p>{props.description}</p>
-      <Link to={`/examples/${props.id}`}>Подробнее</Link>
-      <button onClick={() => props.removeFromFav(props.id)}>
-        Удалить из избранного
-      </button>
-    </div>
-  );
+const FavoriteCard = ({favoritesElem}) => {
+
+    const {removeFromFav} = useContext(AppContext)
+    const {id, img, title, description} = favoritesElem
+
+    return (
+        <div key={id} className={classes.cardContainer}>
+            <img src={img} alt=""/>
+            <h2>{title}</h2>
+            <p>{description}</p>
+            <Link to={`/examples/${id}`}>Подробнее</Link>
+            <button onClick={() => removeFromFav(id)}>
+                Удалить из избранного
+            </button>
+        </div>
+    );
 };
 
 export default FavoriteCard;

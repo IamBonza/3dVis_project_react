@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import classes from './Calc.module.css';
 import {AuthContext} from '../../context/context';
 import Button from '../Buttton/Button';
@@ -6,19 +6,29 @@ import {stylesRadioBtns} from '../../databases/stylesRadioBtns'
 
 
 const Calc = () => {
-
+    const {isAuth, setIsVisible} = useContext(AuthContext);
     const [radio, setRadio] = useState(400)
     const [range, setRange] = useState(25)
-    const {isAuth, setIsVisible} = useContext(AuthContext);
+    const [orderCount, setOrderCount] = useState(1)
 
-    let orderCount = 1;
+    useEffect( () => {
+        if(!localStorage.getItem('orders')) {
+            localStorage.setItem('orders', JSON.stringify([]) )
+        }
+    })
+
 
     function sendOrderHandler(e) {
         e.preventDefault()
-        orderCount++
         const selectedStyle = stylesRadioBtns.find(elem => elem.price === Number(radio))
         // localStorage.setItem(`Order ${orderCount}` ,`Площадь квартиры: ${range} м². Стили: ${selectedStyle.style}`)
         console.log(`Order ${orderCount}` ,`Площадь квартиры: ${range} м². Стили: ${selectedStyle.style}`)
+        const order = `Order ${orderCount}. Площадь квартиры: ${range} м². Стили: ${selectedStyle.style}`
+        const orderList = JSON.parse(localStorage.getItem('orders'))
+        const newOrderList = [...orderList, order]
+        console.log(newOrderList)
+        localStorage.setItem('orders', JSON.stringify(newOrderList) )
+        setOrderCount(prevState => prevState + 1)
     }
 
     if (!isAuth) {
@@ -50,7 +60,9 @@ const Calc = () => {
                                 />
                                 <div className={classes.radioBtnBlock__title}>
                                     {elem.style}
-                                    <span className={classes.radioBtnBlock__titlePrices}>Базовая цена: 1 м² = {elem.price} рублей</span>
+                                    <span className={classes.radioBtnBlock__titlePrices}>
+                                        Базовая цена: 1 м² = {elem.price} рублей
+                                    </span>
                                 </div>
                             </label>
                         )

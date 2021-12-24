@@ -1,21 +1,27 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {Link, useParams} from "react-router-dom";
 import classes from './FullExample.module.css'
 import Button from '../Buttton/Button';
+import {AppContext} from '../../context/appContext';
 
-const FullExample = ({dataBase, addToFav}) => {
+const FullExample = () => {
     const {id} = useParams();
+    const {dataBase, addToFav} = useContext(AppContext)
+
+    const result = dataBase.filter(dataBaseItem => dataBaseItem.id === id)
 
     return (
         <>
-            {dataBase.filter(dataBaseItem => dataBaseItem.id === id).map((dataBaseElem) => {
+            {result.map((dataBaseElem) => {
                 return (
                     <section key={dataBaseElem.id} className={classes.fullExample__container}>
                         <div className={classes.buttonContainer}>
-                            <div><Link to='/examples'><Button>Назад</Button></Link></div>
-                            <div><Button  onClick={()=> addToFav(dataBaseElem)} className='addToFavBtn'>
+                            <Link to='/examples'>
+                                <Button>Назад</Button>
+                            </Link>
+                            <Button  onClick={()=> addToFav(dataBaseElem)} className='addToFavBtn'>
                                 Добавить в избранное
-                            </Button></div>
+                            </Button>
                         </div>
                         <h2>{dataBaseElem.title}</h2>
                         <img src={dataBaseElem.img} alt=""/>

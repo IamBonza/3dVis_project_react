@@ -16,18 +16,19 @@ const InteriorStyles = () => {
         }
     }
 
-    const {styles} = useContext(AppContext)
+    const {InteriorStyles} = useContext(AppContext)
 
     return (
         <>
             <h2>Виды дизайна интерьеров</h2>
             <div className={'sliderContainer'}>
 
-                {styles.map((style, index) => {
+                {InteriorStyles.map((style) => {
                     return (
                         <div className={addActiveClass(style.id)}
                              style={{backgroundImage: style.img}}
-                             onClick={(e) => setActiveId(style.id)} key={index}
+                             onClick={(e) => setActiveId(style.id)}
+                             key={style.id}
                         >
                             <h3>{style.name}</h3>
                         </div>
