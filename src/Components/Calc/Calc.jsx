@@ -15,13 +15,12 @@ const Calc = () => {
         if(!localStorage.getItem('orders')) {
             localStorage.setItem('orders', JSON.stringify([]) )
         }
-    })
+    }, [])
 
 
     function sendOrderHandler(e) {
         e.preventDefault()
         const selectedStyle = stylesRadioBtns.find(elem => elem.price === Number(radio))
-        // localStorage.setItem(`Order ${orderCount}` ,`Площадь квартиры: ${range} м². Стили: ${selectedStyle.style}`)
         console.log(`Order ${orderCount}` ,`Площадь квартиры: ${range} м². Стили: ${selectedStyle.style}`)
         const order = `Order ${orderCount}. Площадь квартиры: ${range} м². Стили: ${selectedStyle.style}`
         const orderList = JSON.parse(localStorage.getItem('orders'))
