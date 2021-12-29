@@ -14,6 +14,7 @@ html, body {
     height: 100%;
     border-color: #FFFFFF;
     padding-top: 82px;
+    z-index: 10;
 }
 
 .form {
@@ -26,12 +27,13 @@ html, body {
     background: #FFFFFF;
     box-shadow: 0 0 40px 10px rgb(143 179 195 / 69%);
     border-radius: 20px;
+    z-index: 100;
 }
 
 .closeBtn {
     position: absolute;
-    top: 60px;
-    right: 610px;
+    top: -24px;
+    right: -44px;
     color: white;
     font-size: 36px;
     font-weight: bold;

@@ -30,13 +30,13 @@ const LoginForm = () => {
     }
   };
 
-  const closeHandler = () => {
+  const closeHandler = (e) => {
     setIsVisible(false)
   }
 
   return (
-    <div className={classes.formWrapper} onClick={closeHandler}>
-      <div className={classes.closeBtn} onClick={closeHandler}>X</div>
+    <div className={classes.formWrapper} >
+
       <form action="POST" className={classes.form} onSubmit={submitFormHandler}>
         <h1 className={classes.form__title}>Вход</h1>
         <div className={classes.inputBlock}>
@@ -85,7 +85,7 @@ const LoginForm = () => {
         <Button type="submit" className={'loginBtn'}>
           Войти
         </Button>
-
+        <div className={classes.closeBtn} onClick={closeHandler}>X</div>
       </form>
     </div>
   );

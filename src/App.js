@@ -14,7 +14,7 @@ import Modal from './Components/Modal/Modal';
 function App() {
     const [dataBase] = useState(() => examples);
     const [favorites, setFavorites] = useState([]);
-    const [isAuth, setIsAuth] = useState(true)
+    const [isAuth, setIsAuth] = useState(false)
     const [isVisible, setIsVisible] = useState(false)
 
     function addToFav(dataBaseElem) {
