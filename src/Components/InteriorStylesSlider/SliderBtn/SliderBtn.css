@@ -1,0 +1,27 @@
+.btn-slide {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #f1f1f1;
+    border: 1px solid rgba(34, 34, 34, 0.287);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btn-image {
+    width: 30px;
+    height: 30px;
+}
+
+.prev {
+    top: 45%;
+    left: 10px;
+}
+
+.next {
+    top: 45%;
+    right: 10px;
+}
