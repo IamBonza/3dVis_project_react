@@ -5,7 +5,7 @@ import { usersList } from "../../databases/users";
 import {AuthContext} from "../../context/context";
 import Button from '../Buttton/Button';
 
-const LoginForm = () => {
+const LoginForm = ({loginFromRef}) => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const {setIsAuth, setIsVisible} = useContext(AuthContext)
@@ -37,7 +37,7 @@ const LoginForm = () => {
   return (
     <div className={classes.formWrapper} >
 
-      <form action="POST" className={classes.form} onSubmit={submitFormHandler}>
+      <form action="POST" className={classes.form} onSubmit={submitFormHandler} ref={loginFromRef}>
         <h1 className={classes.form__title}>Вход</h1>
         <div className={classes.inputBlock}>
           <label htmlFor="input-email" className={classes.inputBlock__title}>

@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import './index.css';
-import Header from './Components/Header/Header';
 import {AuthContext} from './context/context';
 import {AppContext} from './context/appContext';
 import {examples} from './databases/examples';
@@ -9,6 +8,7 @@ import {InteriorStyles} from './databases/stylesDb';
 import {routes} from './databases/routes';
 import {links} from './databases/links';
 import AppRouter from './Components/AppRouter/AppRouter';
+import Header from './Components/Header/Header';
 import Modal from './Components/Modal/Modal';
 
 function App() {

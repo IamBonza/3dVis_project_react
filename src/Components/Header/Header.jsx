@@ -3,8 +3,8 @@ import logo from '../../assets/images/Web.png';
 import {Link} from 'react-router-dom';
 import classes from './Header.module.css'
 import {AuthContext} from '../../context/context';
-import Button from '../Buttton/Button.jsx';
 import {AppContext} from '../../context/appContext';
+import Button from '../Buttton/Button.jsx';
 
 const Header = () => {
     const {isAuth, setIsAuth, setIsVisible} = useContext(AuthContext);
